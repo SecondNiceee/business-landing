@@ -1,9 +1,9 @@
-# Website design improvement
+# businesslandingmain
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/secondniceees-projects/v0-website-design-improvement)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/SShFQlTwNzm)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/pikkikpka-2868s-projects/v0-businesslandingmain)
+[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/1LW4WTFDH49)
 
 ## Overview
 
@@ -14,13 +14,13 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/secondniceees-projects/v0-website-design-improvement](https://vercel.com/secondniceees-projects/v0-website-design-improvement)**
+**[https://vercel.com/pikkikpka-2868s-projects/v0-businesslandingmain](https://vercel.com/pikkikpka-2868s-projects/v0-businesslandingmain)**
 
 ## Build your app
 
 Continue building your app on:
 
-**[https://v0.app/chat/projects/SShFQlTwNzm](https://v0.app/chat/projects/SShFQlTwNzm)**
+**[https://v0.app/chat/projects/1LW4WTFDH49](https://v0.app/chat/projects/1LW4WTFDH49)**
 
 ## How It Works
 

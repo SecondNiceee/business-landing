@@ -8,9 +8,9 @@ import { Footer } from "@/components/footer"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-green-50/30 to-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <Header />
-      <main className="space-y-8">
+      <main className="space-y-12">
         <HeroSection />
         <ServicesSection />
         <ProcessSection />

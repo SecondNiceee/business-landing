@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color scheme to green theme */
-  --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0.2 0 0); /* Dark gray for text */
-  --card: oklch(0.98 0 0); /* Light gray for cards */
-  --card-foreground: oklch(0.25 0 0); /* Slightly lighter than foreground */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0 0);
-  --primary: oklch(0.25 0 0); /* Dark gray primary */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.65 0.18 142); /* Modern green accent */
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0 0); /* Very light gray */
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.65 0.18 142); /* Green accent color */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0); /* Light border */
-  --input: oklch(0.98 0 0);
-  --ring: oklch(0.65 0.18 142); /* Green focus ring */
-  --chart-1: oklch(0.65 0.18 142);
-  --chart-2: oklch(0.577 0.245 27.325);
-  --chart-3: oklch(0.7 0.15 45);
-  --chart-4: oklch(0.45 0 0);
-  --chart-5: oklch(0.25 0 0);
+  /* Updated color scheme based on design brief */
+  --background: #ffffff; /* Pure white */
+  --foreground: #1f2937; /* Dark gray for text */
+  --card: #f1f5f9; /* Light gray for cards */
+  --card-foreground: #1f2937; /* Dark text on cards */
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --primary: #1f2937; /* Dark gray primary */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #6b7280; /* Gray secondary */
+  --secondary-foreground: #ffffff;
+  --muted: #f1f5f9; /* Very light gray */
+  --muted-foreground: #6b7280;
+  --accent: #8b5cf6; /* Purple accent color */
+  --accent-foreground: #ffffff;
+  --destructive: #ea580c;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb; /* Light border */
+  --input: #f1f5f9;
+  --ring: rgba(139, 92, 246, 0.5); /* Purple focus ring */
+  --chart-1: #1f2937;
+  --chart-2: #8b5cf6;
+  --chart-3: #6b7280;
+  --chart-4: #15803d;
+  --chart-5: #ea580c;
   --radius: 0.5rem;
-  --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.2 0 0);
-  --sidebar-primary: oklch(0.25 0 0);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.65 0.18 142);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.65 0.18 142);
+  --sidebar: #f1f5f9;
+  --sidebar-foreground: #1f2937;
+  --sidebar-primary: #8b5cf6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #6b7280;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: rgba(139, 92, 246, 0.5);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.65 0.18 142);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.65 0.18 142);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.65 0.18 142);
-  --chart-1: oklch(0.65 0.18 142);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.65 0.18 142);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.65 0.18 142);
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  --secondary: #6b7280;
+  --secondary-foreground: #ffffff;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #8b5cf6;
+  --accent-foreground: #ffffff;
+  --destructive: #ea580c;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #334155;
+  --ring: rgba(139, 92, 246, 0.5);
+  --chart-1: #8b5cf6;
+  --chart-2: #6b7280;
+  --chart-3: #f8fafc;
+  --chart-4: #15803d;
+  --chart-5: #ea580c;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #8b5cf6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: rgba(139, 92, 246, 0.5);
 }
 
 @theme inline {
@@ -142,7 +142,20 @@
     animation: fadeInRight 1.2s ease-out forwards;
   }
 
-  /* Увеличил задержки между элементами для более плавного появления */
+  /* Added new animation utilities for enhanced design */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
   .animate-stagger-1 {
     animation-delay: 0.2s;
   }
@@ -166,9 +179,16 @@
   .opacity-0 {
     opacity: 0;
   }
+
+  /* Added glass morphism utility */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
-/* Увеличил расстояние движения и сделал easing более плавным */
+/* Enhanced keyframes with new animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -208,5 +228,27 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
