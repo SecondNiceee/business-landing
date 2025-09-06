@@ -13,7 +13,7 @@ export function HeroSection() {
       ></div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-left">
             <div className="space-y-6">
               <Badge
@@ -23,12 +23,12 @@ export function HeroSection() {
                 <Sparkles className="w-4 h-4 mr-2" />
                 Профессиональные финансовые услуги
               </Badge>
-              <h1 className="text-5xl lg:text-7xl font-bold text-balance leading-tight">
-                РАСТИМ{" "}
-                <span className="text-accent bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">
-                  БИЗНЕС
-                </span>{" "}
-                ВМЕСТЕ
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                РАСТИМ 
+                <span className=" bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">
+                  {" "}БИЗНЕС
+                </span>
+                {" "}ВМЕСТЕ
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground text-pretty leading-relaxed">
                 Комплексное финансовое сопровождение вашего бизнеса от экспертов с многолетним опытом
@@ -54,7 +54,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 max-w-lg">
+            <div className="flex flex-col gap-4 w-full">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground w-full group shadow-lg hover:shadow-xl transition-all duration-300"
@@ -75,12 +75,12 @@ export function HeroSection() {
           <div className="relative animate-fade-in-right">
             <div className="relative rounded-3xl overflow-hidden bg-white p-12 hover:shadow-2xl transition-all duration-700 group shadow-lg">
               <img
-                src="/professional-business-woman.png"
+                src="/hero-busines.jpg"
                 alt="Финансовый консультант"
                 className="w-full h-auto rounded-2xl transform group-hover:scale-105 transition-transform duration-700 shadow-2xl"
               />
 
-              <div className="absolute top-6 right-6 bg-white rounded-xl p-4 shadow-xl animate-pulse-slow border border-gray-200">
+              <div className="absolute top-6 right-6 bg-white rounded-xl p-4 shadow-xl border border-gray-200">
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                   <span className="text-sm font-semibold text-gray-800">Онлайн консультации</span>
