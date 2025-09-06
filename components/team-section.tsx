@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useIntersectionObserver } from "./use-intersection-observer"
+import { useIntersectionObserver } from "../hooks/use-intersection-observer"
 
 export function TeamSection() {
   const { ref, isIntersecting } = useIntersectionObserver()
@@ -14,18 +14,21 @@ export function TeamSection() {
       image: "/professional-female-accountant.png",
       description:
         "Обеспечивает качественное ведение бухгалтерского учета и соблюдение всех требований законодательства",
+      delay : "delay-100"
     },
     {
       name: "Ведущий эксперт",
       role: "Налоговое планирование",
       image: "/professional-male-tax-expert.jpg",
       description: "Специализируется на налоговом планировании и оптимизации налоговых платежей",
+      delay : "delay-200"
     },
     {
       name: "Юрист",
       role: "Правовое сопровождение",
       image: "/professional-female-lawyer.png",
       description: "Обеспечивает правовую защиту интересов клиентов и юридическое сопровождение сделок",
+      delay : "delay-300"
     },
   ]
 
@@ -34,7 +37,7 @@ export function TeamSection() {
       <div className="max-w-7xl mx-auto px-4">
         <div
           className={`text-center space-y-4 mb-16 transition-all duration-800 ${
-            isIntersecting ? "animate-fade-in-up opacity-100" : "opacity-0"
+            isIntersecting ? "animate-fade-in-up opacity-100" : ""
           }`}
         >
           <Badge variant="secondary" className="w-fit mx-auto text-base px-4 py-2">
@@ -55,8 +58,8 @@ export function TeamSection() {
               key={index}
               className={`group hover:shadow-lg transition-all duration-700 border-0 bg-background overflow-hidden ${
                 isIntersecting
-                  ? `animate-fade-in-up opacity-100 animate-stagger-${index + 1}`
-                  : "opacity-0 translate-y-8"
+                  ? `opacity-100 ${member.delay} translate-y-0`
+                  : "opacity-0 translate-y-14"
               }`}
             >
               <div className="aspect-square overflow-hidden">

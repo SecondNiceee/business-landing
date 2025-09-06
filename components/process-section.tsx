@@ -4,10 +4,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Users, TrendingUp, CheckCircle, Clock, Star, ArrowRight } from "lucide-react"
-import { useIntersectionObserver } from "./use-intersection-observer"
+import { useIntersectionObserver } from "../hooks/use-intersection-observer"
 
 export function ProcessSection() {
-  const { ref, isIntersecting } = useIntersectionObserver()
+  const { ref, isIntersecting } = useIntersectionObserver();
 
   const steps = [
     {
@@ -15,30 +15,35 @@ export function ProcessSection() {
       title: "Формируем команду для вашего проекта",
       description: "Подбираем специалистов под ваши задачи",
       icon: Users,
+      delay : "delay-100"
     },
     {
       step: "2",
       title: "Создаем план и анализируем проблемы",
       description: "Детальный анализ текущей ситуации",
       icon: TrendingUp,
+      delay : "delay-200"
     },
     {
       step: "3",
       title: "Создаем цели и задачи для достижения результата",
       description: "Определяем конкретные шаги к успеху",
       icon: CheckCircle,
+      delay : "delay-300"
     },
     {
       step: "4",
       title: "Начинаем работу",
       description: "Приступаем к реализации плана",
       icon: Clock,
+      delay : "delay-[400ms]"
     },
     {
       step: "5",
       title: "Выводим ваш бизнес на новый уровень",
       description: "Достигаем поставленных целей",
       icon: Star,
+      delay : "delay-500"
     },
   ]
 
@@ -69,10 +74,10 @@ export function ProcessSection() {
             {steps.map((item, index) => (
               <div
                 key={index}
-                className={`relative group transition-all duration-1200 ${
+                className={`relative group transition-all duration-700  ${
                   isIntersecting
-                    ? `animate-fade-in-up opacity-100 animate-stagger-${index + 1}`
-                    : "opacity-0 translate-y-8"
+                    ? isIntersecting ? `opacity-100 translate-y-0 ${item.delay}` : "opacity-0 translate-y-14"
+                    : "opacity-0"
                 }`}
               >
                 <Card className="text-center p-6 h-full border-2 border-transparent group-hover:border-accent/20 transition-all duration-300 bg-background hover:shadow-lg">
@@ -96,7 +101,7 @@ export function ProcessSection() {
 
         <div
           className={`text-center mt-16 transition-all duration-800 delay-700 ${
-            isIntersecting ? "animate-fade-in opacity-100" : "opacity-0"
+            isIntersecting ? "animate-fade-in opacity-100" : ""
           }`}
         >
           <div className="space-y-4">

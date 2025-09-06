@@ -1,21 +1,21 @@
-"use client"
-
 import { useEffect, useRef, useState } from "react"
 
 export function useIntersectionObserver(options = {}) {
-  const [isIntersecting, setIsIntersecting] = useState(false)
+  const [hasIntersected, setHasIntersected] = useState(false) 
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting)
+        if (entry.isIntersecting && !hasIntersected) {
+          setHasIntersected(true) 
+        }
       },
       {
-        threshold: 0.1,
+        threshold: 0.1, 
         rootMargin: "0px 0px -50px 0px",
         ...options,
-      },
+      }
     )
 
     if (ref.current) {
@@ -23,7 +23,7 @@ export function useIntersectionObserver(options = {}) {
     }
 
     return () => observer.disconnect()
-  }, [options])
+  }, [options, hasIntersected]) // ← добавил hasIntersected в зависимости
 
-  return { ref, isIntersecting }
+  return { ref, isIntersecting: hasIntersected } // ← теперь isIntersecting = true навсегда
 }
