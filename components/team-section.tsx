@@ -33,7 +33,7 @@ export function TeamSection() {
   ]
 
   return (
-    <section id="team" className="py-20 bg-muted/30" ref={ref}>
+    <section id="team" className="py-15 bg-muted/30" ref={ref}>
       <div className="max-w-7xl mx-auto px-4">
         <div
           className={`text-center space-y-4 mb-16 transition-all duration-800 ${

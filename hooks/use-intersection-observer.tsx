@@ -23,7 +23,7 @@ export function useIntersectionObserver(options = {}) {
     }
 
     return () => observer.disconnect()
-  }, [options, hasIntersected]) // ← добавил hasIntersected в зависимости
+  }, [options]) // ← добавил hasIntersected в зависимости
 
   return { ref, isIntersecting: hasIntersected } // ← теперь isIntersecting = true навсегда
 }

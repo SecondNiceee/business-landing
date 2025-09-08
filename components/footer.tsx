@@ -1,4 +1,4 @@
-import { Phone, Mail } from "lucide-react"
+import { Phone, Mail, Send } from "lucide-react"
 
 export function Footer() {
   return (
@@ -11,7 +11,7 @@ export function Footer() {
               <span className="text-xl font-bold">VB Finance</span>
             </div>
             <p className="text-primary-foreground/80 text-pretty">
-              Профессиональные финансовые услуги для развития вашего бизнеса
+              Профессиональные финансовые и юридические услуги для развития вашего бизнеса
             </p>
           </div>
 
@@ -20,26 +20,33 @@ export function Footer() {
             <div className="space-y-2 text-primary-foreground/80">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>+7 (812) 985-99-99</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>+7 (962) 685-99-99</span>
+                <span>+79061504777</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>info@infin.ru</span>
+                <span>vsbatrakova@mail.ru</span>
               </div>
+              <a
+                href="https://t.me/Financier_and_lawyer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 hover:text-accent transition-colors"
+              >
+                <Send className="h-4 w-4" />
+                <span>@Financier_and_lawyer</span>
+              </a>
             </div>
           </div>
 
           <div className="space-y-4">
             <h3 className="font-semibold">Услуги</h3>
             <div className="space-y-2 text-primary-foreground/80">
-              <div>Налоговая оптимизация</div>
-              <div>Финансовое планирование</div>
-              <div>Юридическая защита</div>
               <div>Бухгалтерский учет</div>
+              <div>Юридическая защита бизнеса</div>
+              <div>Финансовое планирование</div>
+              <div>Налоговая оптимизация</div>
+              <div>Резидентство Сколково</div>
+              <div>Льготы и субсидии</div>
             </div>
           </div>
 
