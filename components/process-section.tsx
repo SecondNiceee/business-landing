@@ -52,8 +52,27 @@ export function ProcessSection() {
 
   return (
     <>
-      <section id="process" className="py-15" ref={ref}>
-        <div className="max-w-7xl mx-auto px-4">
+      <section id="process" className="py-15 relative overflow-hidden" ref={ref}>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50/25 via-transparent to-green-100/20"></div>
+        <div className="absolute top-20 left-10 w-80 h-80 bg-green-400/12 rounded-full blur-3xl animate-float"></div>
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute top-1/2 left-1/3 w-64 h-64 bg-emerald-300/15 rounded-full blur-2xl animate-float"
+          style={{ animationDelay: "4s" }}
+        ></div>
+        <div
+          className="absolute top-10 right-1/4 w-56 h-56 bg-green-600/8 rounded-full blur-2xl animate-float"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute bottom-10 left-1/2 w-72 h-72 bg-green-200/18 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "3s" }}
+        ></div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div
             className={`text-center space-y-4 mb-16 transition-all duration-800 ${
               isIntersecting ? "animate-fade-in-up opacity-100" : "opacity-0"

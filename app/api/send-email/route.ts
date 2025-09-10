@@ -1,19 +1,25 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { sendEmail, generateEmailHTML } from "@/lib/email"
 
 export async function POST(request: NextRequest) {
   try {
     const { to, subject, formData } = await request.json()
 
-    // For now, we'll log the data and return success
-    console.log("Email data:", { to, subject, formData })
+    const html = generateEmailHTML(formData)
 
-    // In production, you would integrate with an email service:
-    // const emailService = new EmailService()
-    // await emailService.send({ to, subject, html: generateEmailHTML(formData) })
+    await sendEmail(to, subject, html)
 
-    return NextResponse.json({ success: true })
+    console.log("Email sent successfully to:", to)
+
+    return NextResponse.json({ success: true, message: "Email sent successfully" })
   } catch (error) {
     console.error("Error sending email:", error)
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 })
+    return NextResponse.json(
+      {
+        error: "Failed to send email",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
+    )
   }
 }

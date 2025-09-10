@@ -1,8 +1,6 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -14,20 +12,23 @@ interface ContactFormProps {
   onClose: () => void
 }
 
+interface FormData {
+  name: string
+  phone: string
+  email: string
+  company: string
+  message: string
+}
+
 export function ContactForm({ isOpen, onClose }: ContactFormProps) {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    company: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
+  const onSubmit = async (data: FormData) => {
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
@@ -37,19 +38,13 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
         body: JSON.stringify({
           to: "vsbatrakova@mail.ru",
           subject: "Новая заявка с сайта",
-          formData,
+          formData: data,
         }),
       })
 
       if (response.ok) {
         alert("Заявка успешно отправлена!")
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          company: "",
-          message: "",
-        })
+        reset()
         onClose()
       } else {
         alert("Ошибка при отправке заявки. Попробуйте еще раз.")
@@ -57,16 +52,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
     } catch (error) {
       console.error("Error sending email:", error)
       alert("Ошибка при отправке заявки. Попробуйте еще раз.")
-    } finally {
-      setIsSubmitting(false)
     }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
   }
 
   if (!isOpen) return null
@@ -83,77 +69,110 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
         <CardContent className="space-y-6">
           <div className="grid md:grid-cols-3 gap-4 p-4 bg-muted/50 rounded-lg">
             <div className="flex items-center space-x-2">
-              <Phone className="h-4 w-4 text-accent" />
-              <span className="text-sm">+79061504777</span>
+              <Phone className="h-4 w-4 text-green-400" />
+              <span className="text-sm text-green-600">+79061504747</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Mail className="h-4 w-4 text-accent" />
-              <span className="text-sm">vsbatrakova@mail.ru</span>
+              <Mail className="h-4 w-4 text-green-400" />
+              <span className="text-sm text-green-600">vsbatrakova@mail.ru</span>
             </div>
             <a
-              href="https://t.me/Financier_and_lawyer"
+              href="https://t.me/VB_Finance"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 text-accent hover:text-accent/80 transition-colors"
+              className="flex items-center space-x-2 text-green-600 hover:text-green-500 transition-colors"
             >
               <Send className="h-4 w-4" />
-              <span className="text-sm">@Financier_and_lawyer</span>
+              <span className="text-sm">@VB_Finance</span>
             </a>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-2 block">Имя *</label>
-                <Input name="name" value={formData.name} onChange={handleChange} placeholder="Ваше имя" required />
+                <label className="text-sm font-medium mb-2 block">Фамилия Имя Отчество *</label>
+                <Input
+                  {...register("name", {
+                    required: "Поле обязательно для заполнения",
+                  })}
+                  placeholder="Фамилия Имя Отчество"
+                />
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
               </div>
               <div>
                 <label className="text-sm font-medium mb-2 block">Телефон *</label>
                 <Input
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
+                  {...register("phone", {
+                    required: "Поле обязательно для заполнения",
+                  })}
                   placeholder="+7 (999) 123-45-67"
-                  required
                 />
+                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-2 block">Email</label>
+                <label className="text-sm font-medium mb-2 block">Email *</label>
                 <Input
-                  name="email"
+                  {...register("email", {
+                    required: "Поле обязательно для заполнения",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Введите корректный email адрес",
+                    },
+                  })}
                   type="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="your@email.com"
                 />
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium mb-2 block">Компания</label>
+                <label className="text-sm font-medium mb-2 block">Компания *</label>
                 <Input
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
+                  {...register("company", {
+                    required: "Поле обязательно для заполнения",
+                  })}
                   placeholder="Название компании"
                 />
+                {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
               </div>
             </div>
 
             <div>
-              <label className="text-sm font-medium mb-2 block">Сообщение</label>
+              <label className="text-sm font-medium mb-2 block">Сообщение *</label>
               <Textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
+                {...register("message", {
+                  required: "Поле обязательно для заполнения",
+                  minLength: {
+                    value: 10,
+                    message: "Сообщение должно содержать минимум 10 символов",
+                  },
+                })}
                 placeholder="Расскажите о ваших потребностях..."
                 rows={4}
               />
+              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
+            </div>
+
+            <div className="text-xs text-muted-foreground">
+              Нажимая кнопку отправить, Вы даете согласие на обработку персональных данных в соответствии с 152-ФЗ и{" "}
+              <a
+                href="/police.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-600 hover:text-green-500 underline"
+              >
+                Политике обработки персональных данных
+              </a>
             </div>
 
             <div className="flex gap-4">
-              <Button type="submit" className="flex-1 bg-accent hover:bg-accent/90" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Отправляется..." : "Отправить заявку"}
               </Button>
               <Button type="button" variant="outline" onClick={onClose}>

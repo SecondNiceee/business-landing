@@ -6,19 +6,19 @@ import { useIntersectionObserver } from "../hooks/use-intersection-observer"
 import { Award, Users, TrendingUp, Shield } from "lucide-react"
 
 export function AboutSection() {
-  const { ref, isIntersecting } = useIntersectionObserver();
-  const {ref : refWhyUs, isIntersecting : isIntersectingWhyUS} = useIntersectionObserver();
+  const { ref, isIntersecting } = useIntersectionObserver()
+  const { ref: refWhyUs, isIntersecting: isIntersectingWhyUS } = useIntersectionObserver()
 
   const achievements = [
     {
       icon: Award,
-      title: "15+ лет опыта",
+      title: "24+ лет опыта",
       description: "Успешная работа на рынке финансовых и юридических услуг",
       delay: "delay-100",
     },
     {
       icon: Users,
-      title: "500+ клиентов",
+      title: "100+ клиентов",
       description: "Довольных клиентов, которые доверяют нам свой бизнес",
       delay: "delay-200",
     },
@@ -37,8 +37,27 @@ export function AboutSection() {
   ]
 
   return (
-    <section id="about" className="py-15 bg-muted/30" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="about" className="py-15 bg-muted/30 relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50/20 via-transparent to-green-100/15"></div>
+      <div className="absolute top-10 right-20 w-88 h-88 bg-green-400/12 rounded-full blur-3xl animate-float"></div>
+      <div
+        className="absolute bottom-10 left-20 w-72 h-72 bg-green-500/10 rounded-full blur-2xl animate-float"
+        style={{ animationDelay: "3s" }}
+      ></div>
+      <div
+        className="absolute top-1/3 left-1/2 w-56 h-56 bg-emerald-400/14 rounded-full blur-xl animate-float"
+        style={{ animationDelay: "1.5s" }}
+      ></div>
+      <div
+        className="absolute bottom-1/3 right-10 w-64 h-64 bg-green-300/16 rounded-full blur-2xl animate-float"
+        style={{ animationDelay: "4s" }}
+      ></div>
+      <div
+        className="absolute top-20 left-10 w-48 h-48 bg-green-600/8 rounded-full blur-xl animate-float"
+        style={{ animationDelay: "2s" }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div
           className={`text-center space-y-4 mb-16 transition-all duration-800 ${
             isIntersecting ? "translate-y-0 opacity-100" : "translate-y-[20px]"
@@ -61,11 +80,11 @@ export function AboutSection() {
           {achievements.map((achievement, index) => (
             <Card
               key={index}
-              className={`group hover:shadow-lg transition-all duration-700 border-0 bg-background text-center ${
+              className={`group hover:shadow-lg transition-all duration-700 border-0 bg-background text-center gap-3 ${
                 isIntersecting ? `opacity-100 ${achievement.delay} translate-y-0` : "opacity-0 translate-y-14"
               }`}
             >
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-2">
                 <div className="flex justify-center mb-4">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
                     <achievement.icon className="h-8 w-8 text-accent" />
@@ -81,7 +100,7 @@ export function AboutSection() {
         </div>
 
         <div
-         ref={refWhyUs}
+          ref={refWhyUs}
           className={`bg-background rounded-2xl p-8 lg:p-12 shadow-lg transition-all duration-800 ${
             isIntersectingWhyUS ? "animate-fade-in-up opacity-100" : "opacity-0 translate-y-8"
           }`}
@@ -122,7 +141,7 @@ export function AboutSection() {
             </div>
             <div className="lg:pl-8">
               <img
-                src="/business-protection.jpg"
+                src="/professional-business-team-working-together-in-mod.jpg"
                 alt="О нашей компании"
                 className="w-full h-auto rounded-lg shadow-md"
               />

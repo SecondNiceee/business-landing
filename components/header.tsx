@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/95">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -48,7 +48,7 @@ export function Header() {
 
             <div className="flex items-center space-x-4">
               <Button
-                className="bg-accent hover:bg-accent/90 hidden sm:flex"
+                className="bg-green-600 hover:bg-green-700 text-white hidden sm:flex"
                 onClick={() => setIsContactFormOpen(true)}
               >
                 Получить консультацию
@@ -97,7 +97,7 @@ export function Header() {
                   Контакты
                 </a>
                 <Button
-                  className="bg-accent hover:bg-accent/90 w-full sm:hidden"
+                  className="bg-green-600 hover:bg-green-700 text-white w-full sm:hidden"
                   onClick={() => {
                     setIsContactFormOpen(true)
                     setIsMobileMenuOpen(false)
@@ -113,20 +113,20 @@ export function Header() {
             <div className="flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-accent" />
-                <span>+79061504777</span>
+                <span className="text-green-600">+79061504747</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-accent" />
-                <span>vsbatrakova@mail.ru</span>
+                <span className="text-green-600">vsbatrakova@mail.ru</span>
               </div>
               <a
-                href="https://t.me/Financier_and_lawyer"
+                href="https://t.me/VB_Finance"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-accent hover:text-accent/80 transition-colors"
               >
                 <Send className="h-4 w-4" />
-                <span>@Financier_and_lawyer</span>
+                <span>@VB_Finance</span>
               </a>
             </div>
           </div>

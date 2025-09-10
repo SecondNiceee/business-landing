@@ -96,7 +96,7 @@ export function HeroSection() {
                   </span>
                 </Badge>
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl  font-bold leading-tight break-words">
-                  РАЗВИТИЕ И ЗАЩИТА <span className="text-green-900">ВАШЕГО</span> БИЗНЕСА
+                  РАЗВИТИЕ И ЗАЩИТА БИЗНЕСА
                 </h1>
                 <p className="text-sm sm:text-base lg:text-xl xl:text-2xl text-muted-foreground text-pretty leading-relaxed">
                   Комплексное финансовое и юридическое сопровождение вашего бизнеса от экспертов с многолетним опытом
